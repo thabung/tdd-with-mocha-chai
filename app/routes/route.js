@@ -1,67 +1,67 @@
-let Book = require('../models/book');
+let Player = require('../models/player');
 
 /*
- * GET /book route to retrieve all the books.
+ * GET /player route to retrieve all the players.
  */
-function getBooks(req, res) {
-    //Query the DB and if no errors, send all the books
-    let query = Book.find({});
-    query.exec((err, books) => {
+function getPlayers(req, res) {
+    //Query the DB and if no errors, send all the players
+    let query = Player.find({});
+    query.exec((err, players) => {
         if(err) res.send(err);
         //If no errors, send them back to the client
-        res.json(books);
+        res.json(players);
     });
 }
 
 /*
- * POST /book to save a new book.
+ * POST /player to save a new player.
  */
-function postBook(req, res) {
-    //Creates a new book
-    var newBook = new Book(req.body);
+function postPlayer(req, res) {
+    //Creates a new player
+    var newPlayer = new Player(req.body);
     //Save it into the DB.
-    newBook.save((err,book) => {
+    newPlayer.save((err,player) => {
         if(err) {
             res.send(err);
         }
         else { //If no errors, send it back to the client
-            res.json({message: "Book successfully added!", book });
+            res.json({message: "Player successfully added!", player });
         }
     });
 }
 
 /*
- * GET /book/:id route to retrieve a book given its id.
+ * GET /player/:id route to retrieve a player given its id.
  */
-function getBook(req, res) {
-    Book.findById(req.params.id, (err, book) => {
+function getPlayer(req, res) {
+    Player.findById(req.params.id, (err, player) => {
         if(err) res.send(err);
         //If no errors, send it back to the client
-        res.json(book);
+        res.json(player);
     });     
 }
 
 /*
- * DELETE /book/:id to delete a book given its id.
+ * DELETE /player/:id to delete a player given its id.
  */
-function deleteBook(req, res) {
-    Book.remove({_id : req.params.id}, (err, result) => {
-        res.json({ message: "Book successfully deleted!", result });
+function deletePlayer(req, res) {
+    Player.remove({_id : req.params.id}, (err, result) => {
+        res.json({ message: "Player successfully deleted!", result });
     });
 }
 
 /*
- * PUT /book/:id to updatea a book given its id
+ * PUT /player/:id to updatea a player given its id
  */
-function updateBook(req, res) {
-    Book.findById({_id: req.params.id}, (err, book) => {
+function updatePlayer(req, res) {
+    Player.findById({_id: req.params.id}, (err, player) => {
         if(err) res.send(err);
-        Object.assign(book, req.body).save((err, book) => {
+        Object.assign(player, req.body).save((err, player) => {
             if(err) res.send(err);
-            res.json({ message: 'Book updated!', book });
+            res.json({ message: 'Player updated!', player });
         }); 
     });
 }
 
 //export all the functions
-module.exports = { getBooks, postBook, getBook, deleteBook, updateBook };
+module.exports = { getPlayers, postPlayer, getPlayer, deletePlayer, updatePlayer };
