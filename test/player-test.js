@@ -31,7 +31,7 @@ describe('Players', () => {
   * Test the /POST route
   */
   describe('/POST player', () => {
-      it('it should not POST a player without pages field', (done) => {
+      it('it should not POST a player without number field and fail', (done) => {
         let player = {
             name: "L Messi",
             club: "BARCA"

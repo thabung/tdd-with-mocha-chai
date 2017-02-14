@@ -14,7 +14,7 @@ let PlayerSchema = new Schema(
 );
 
 
-// Sets the createdAt parameter equal to the current time
+// Adding a hook to set the createdAt to current time
 PlayerSchema.pre('save', next => {
     now = new Date();
     if (!this.createdAt) {
