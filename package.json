@@ -17,10 +17,14 @@
     "chai": "^3.5.0",
     "chai-http": "^2.0.1",
     "mocha": "^2.4.5",
-    "mockgoose": "^6.0.8"
+    "mockgoose": "^6.0.8",
+    "mongoose-mock": "^0.4.0",
+    "proxyquire": "^1.7.11",
+    "sinon": "^1.17.7",
+    "sinon-chai": "^2.8.0"
   },
   "scripts": {
-    "start": "NODE_ENV=dev && node server.js",
+    "start": "node server.js",
     "test": "mocha --timeout 10000"
   }
 }
