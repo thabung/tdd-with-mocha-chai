@@ -6,7 +6,7 @@ mongoose.Collection.prototype.insert = function(docs, options, callback) {
     return callback(null, docs);
 };
 
-mongoose.Collection.prototype.remove = function(ns, ops, options, callback) {
+mongoose.Collection.prototype.remove = function(ns, ops, callback) {
     return callback(null)
 }
 mongoose.Promise = global.Promise;
