@@ -1,7 +1,7 @@
 {
-  "name": "bookstore",
+  "name": "PLAYER CRUD",
   "version": "1.0.0",
-  "description": "A bookstore API TDD Demo",
+  "description": "Player CRUD",
   "main": "server.js",
   "author": "Thabung",
   "license": "",

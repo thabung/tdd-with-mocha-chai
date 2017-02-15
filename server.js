@@ -4,7 +4,7 @@ let mongoose = require('mongoose');
 let morgan = require('morgan');
 let bodyParser = require('body-parser');
 let port = 8080;
-let player = require('./app/routes/route');
+let playerDao = require('./app/dao/playerDao');
 let config = require('config'); //we load the db location from the JSON files
 //db options
 let options = {
@@ -13,7 +13,7 @@ let options = {
 };
 
 //db connection    
-//mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise;
 mongoose.connect(config.DBHost, options);
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -32,13 +32,20 @@ app.use(bodyParser.json({type: 'application/json'}));
 
 app.get("/", (req, res) => res.json({message: "Welcome to our Playerstore!"}));
 
+
+
+
+
+
+
+
 app.route("/player")
-        .get(player.getPlayers)
-        .post(player.postPlayer);
+        .get(playerDao.getPlayers)
+        .post(playerDao.postPlayer);
 app.route("/player/:id")
-        .get(player.getPlayer)
-        .delete(player.deletePlayer)
-        .put(player.updatePlayer);
+        .get(playerDao.getPlayer)
+        .delete(playerDao.deletePlayer)
+        .put(playerDao.updatePlayer);
 
 app.listen(port);
 console.log("Listening on port " + port);

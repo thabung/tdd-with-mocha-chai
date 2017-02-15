@@ -1,1 +1,2 @@
-Coming soon! 
+-- A simple TDD with mocha chai and mongoose mock
+-- Also uses Istanbul to generate report

@@ -1,6 +1,6 @@
 var mongoose = require('mongoose'),
         Schema = mongoose.Schema;
-//player schema definition
+
 let PlayerSchema = new Schema(
         {
             name: {type: String, required: true},
